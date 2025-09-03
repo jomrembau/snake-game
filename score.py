@@ -11,6 +11,12 @@ class Score:
         self.score_text.goto(x= 0,y=250)
         self.score_text.write(f"Score : {self.score}", font=("Courier", 16,""), align="center")
 
+    def update_score(self):
+        self.score += 1
+        self.score_text.undo()
+        self.score_text.write(f"Score : {self.score}", font=("Courier", 16, ""), align="center")
+
+
 
 
 
