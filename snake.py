@@ -3,7 +3,7 @@ from turtle import Turtle
 class Snake:
 
     def __init__(self):
-        self.snake_tail = []
+        self.snake_body = []
         self.x = 0
 
     def create_snake(self):
@@ -11,9 +11,33 @@ class Snake:
             segment = Turtle()
             segment.penup()
             segment.shape("square")
-            segment.shapesize(0.6)
+            segment.shapesize(1)
             segment.color("white")
             segment.goto(x=self.x, y=0)
-            self.x += 13
-            self.snake_tail.append(segment)
+            self.x += 20
+            self.snake_body.append(segment)
+
+    def move_snake(self):
+        for x in range(len(self.snake_body)-1,0,-1):
+            new_xcor = self.snake_body[x - 1].xcor()
+            new_ycor = self.snake_body[x - 1].ycor()
+            self.snake_body[x].goto(new_xcor, new_ycor)
+        self.snake_body[0].forward(20)
+
+    def move_up(self):
+        if self.snake_body[0].heading() != 270:
+            self.snake_body[0].setheading(90)
+
+    def move_down(self):
+        if self.snake_body[0].heading() != 90:
+            self.snake_body[0].setheading(270)
+
+    def move_right(self):
+        if self.snake_body[0].heading() != 180:
+            self.snake_body[0].setheading(0)
+
+    def move_left(self):
+        if self.snake_body[0].heading() != 0:
+            self.snake_body[0].setheading(180)
+
 
