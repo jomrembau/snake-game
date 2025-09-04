@@ -17,6 +17,16 @@ class Snake:
             self.x += 20
             self.snake_body.append(segment)
 
+    def add_segment(self):
+        segment = Turtle()
+        segment.penup()
+        segment.shape("square")
+        segment.shapesize(1)
+        segment.color("white")
+        tail = self.snake_body[-1]
+        segment.goto(tail.xcor(), tail.ycor())
+        self.snake_body.append(segment)
+
     def move_snake(self):
         for x in range(len(self.snake_body)-1,0,-1):
             new_xcor = self.snake_body[x - 1].xcor()
@@ -39,5 +49,12 @@ class Snake:
     def move_left(self):
         if self.snake_body[0].heading() != 0:
             self.snake_body[0].setheading(180)
+
+    def body_collision(self):
+        for segment in self.snake_body[1:]:
+            if self.snake_body[0].distance(segment) < 10:
+                return True
+        return False
+
 
 
