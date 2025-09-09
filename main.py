@@ -65,9 +65,6 @@ else:
 score.score_text.clear()
 score.score_text.write(f"Score: {score.score} | HighScore: {score.highscore}", font=("Courier", 16, ""), align="center")
 
-
-
-
-
 game_loop()
 win.mainloop()
+
