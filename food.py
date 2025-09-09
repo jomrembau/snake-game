@@ -14,6 +14,6 @@ class Food:
         self.snake_food.goto(x=self.pos_x, y=self.pos_y)
 
     def food_refresh(self):
-        self.pos_x = random.randint(-14, 14) * 20
-        self.pos_y = random.randint(-14, 14) * 20
+        self.pos_x = random.randint(-12, 12) * 20
+        self.pos_y = random.randint(-12, 12) * 20
         self.snake_food.goto(x=self.pos_x, y=self.pos_y)
