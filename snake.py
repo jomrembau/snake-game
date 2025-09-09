@@ -56,5 +56,13 @@ class Snake:
                 return True
         return False
 
+    def reset_snake(self):
+        for segment in self.snake_body:
+            segment.goto(1000, 1000)
+        self.snake_body.clear()
+        self.x = 0
+
+
+
 
 
